@@ -17,7 +17,7 @@ export default function Note() {
   }, [id]);
 
   return (
-    id && (
+    note && (
       <div className="flex flex-col justify-center items-center h-screen">
         <Head>
           <meta property="og:title" content={`Note ID: ${id && id}`} />
