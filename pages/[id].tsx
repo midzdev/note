@@ -19,9 +19,6 @@ export default function Note() {
   return (
     note && (
       <div className="flex flex-col justify-center items-center h-screen">
-        <Head>
-          <meta property="og:title" content={`Note ID: ${id && id}`} />
-        </Head>
         <code className="bg-neutral-800 border border-neutral-700 rounded-md p-2 w-[1024px] text-white focus:border-indigo-500 duration-200 font-['Fira_Code'] text-sm">
           {note}
         </code>

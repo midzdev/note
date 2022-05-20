@@ -6,8 +6,6 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Note - MidzDev</title>
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Note by MidzDev" />
       </Head>
       <Component {...pageProps} />
     </>
