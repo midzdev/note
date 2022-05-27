@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
@@ -18,10 +19,15 @@ export default function Note() {
   }, [router.isReady]);
 
   return (
-    <pre>
-      <code className="fixed w-screen h-screen bg-transparent font-['Fira_Code'] p-4 text-white font-semibold text-sm">
-        {note}
-      </code>
-    </pre>
+    <>
+      <Head>
+        <meta property="og:title" content={router.isReady && id.toString()} />
+      </Head>
+      <pre>
+        <code className="fixed w-screen h-screen bg-transparent font-['Fira_Code'] p-4 text-white font-semibold text-sm">
+          {note}
+        </code>
+      </pre>
+    </>
   );
 }
