@@ -17,7 +17,7 @@ export default function Document() {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Note by MidzDev" />
         <meta property="og:description" content="Note app created by MidzDev" />
-        <meta property="og:title" content />
+        <meta property="og:title" />
       </Head>
       <Main />
       <NextScript />
