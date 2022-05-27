@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Router from 'next/router';
 
 export default function Index() {
-  const [note, setNote] = useState('');
+  const noteRef = useRef();
 
-  async function saveNote() {
+  async function saveNote(note: string) {
     const res = await fetch('https://api.midzdev.com/note/save', {
       method: 'POST',
       body: note,
@@ -15,26 +15,24 @@ export default function Index() {
     Router.push('/' + id);
   }
 
-  return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <textarea
-        value={note}
-        onChange={({ target }) => setNote(target.value)}
-        rows={14}
-        className="outline-none resize-none bg-neutral-800 border border-neutral-700 rounded-md p-2 w-[1024px] text-white focus:border-indigo-500 duration-200 font-['Fira_Code'] text-sm"></textarea>
+  if (typeof window !== 'undefined') {
+    document.addEventListener('keydown', (event) => {
+      if (event.ctrlKey && event.key.toLowerCase() === 's') {
+        event.preventDefault();
+        // @ts-ignore
+        const note = noteRef.current?.value;
+        if (!note) return;
 
-      <div className="mt-4">
-        <button
-          className="bg-emerald-500 px-4 py-2 font-['Fira_Code'] font-semibold text-white text-sm rounded-md mr-2"
-          onClick={saveNote}>
-          Save
-        </button>
-        <button
-          className="bg-rose-500 px-4 py-2 font-['Fira_Code'] font-semibold text-white text-sm rounded-md"
-          onClick={() => setNote('')}>
-          Clear
-        </button>
-      </div>
-    </div>
+        saveNote(note);
+      }
+    });
+  }
+
+  return (
+    <textarea
+      ref={noteRef}
+      placeholder="Ctrl + S to save note."
+      className="fixed w-screen h-screen overflow-x-auto bg-transparent resize-none font-['Fira_Code'] p-4 text-white font-semibold text-sm placeholder:text-neutral-400"
+    />
   );
 }

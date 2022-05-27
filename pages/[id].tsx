@@ -1,28 +1,27 @@
-import axios from 'axios';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 export default function Note() {
-  const [note, setNote] = useState('');
+  const [note, setNote] = useState<string>();
 
   const router = useRouter();
   const { id } = router.query;
 
   useEffect(() => {
+    if (!router.isReady) return;
+
     (async () => {
-      const res = id && (await axios.get(`https://api.midzdev.com/note/${id}`));
-      setNote(res && res.data);
+      const res = await fetch(`https://api.midzdev.com/note/${id}`);
+      const data = await res.text();
+      setNote(data);
     })();
-  }, [id]);
+  }, [router.isReady]);
 
   return (
-    note && (
-      <div className="flex flex-col justify-center items-center h-screen">
-        <code className="bg-neutral-800 border border-neutral-700 rounded-md p-2 w-[1024px] text-white focus:border-indigo-500 duration-200 font-['Fira_Code'] text-sm">
-          {note}
-        </code>
-      </div>
-    )
+    <pre>
+      <code className="fixed w-screen h-screen bg-transparent font-['Fira_Code'] p-4 text-white font-semibold text-sm">
+        {note}
+      </code>
+    </pre>
   );
 }
