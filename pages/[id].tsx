@@ -20,9 +20,6 @@ export default function Note() {
 
   return (
     <>
-      <Head>
-        <meta property="og:title" content={id && id.toString()} />
-      </Head>
       <pre>
         <code className="fixed w-screen h-screen bg-transparent font-['Fira_Code'] p-4 text-white font-semibold text-sm">
           {note}

@@ -14,10 +14,6 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap"
           rel="stylesheet"
         />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Note by MidzDev" />
-        <meta property="og:description" content="Note app created by MidzDev" />
-        <meta property="og:title" content="Note" />
       </Head>
       <Main />
       <NextScript />
