@@ -20,7 +20,7 @@ export default function Note() {
 
   return (
     <>
-      <pre className="fixed w-screen h-screen bg-transparent font-['Fira_Code'] p-4 text-white font-semibold text-sm">
+      <pre className="fixed w-screen h-screen bg-transparent font-['Fira_Code'] p-4 text-white font-semibold text-sm whitespace-pre-wrap break-words">
         {note}
       </pre>
     </>
