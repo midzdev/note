@@ -20,7 +20,7 @@ export default function Note() {
 
   return (
     <>
-      <div className="fixed w-[100%] h-[100%] bg-transparent font-['Fira_Code'] p-4 text-white font-semibold text-sm break-words">
+      <div className="fixed w-[100%] h-[100%] bg-transparent font-['Fira_Code'] p-4 text-white font-semibold text-sm">
         {note}
       </div>
     </>
