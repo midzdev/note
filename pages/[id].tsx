@@ -20,11 +20,9 @@ export default function Note() {
 
   return (
     <>
-      <pre>
-        <code className="fixed w-screen h-screen bg-transparent font-['Fira_Code'] p-4 text-white font-semibold text-sm">
-          {note}
-        </code>
-      </pre>
+      <div className="fixed w-[100%] h-[100%] bg-transparent font-['Fira_Code'] p-4 text-white font-semibold text-sm break-words">
+        {note}
+      </div>
     </>
   );
 }
