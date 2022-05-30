@@ -2,26 +2,25 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-export default function Note() {
-  const [note, setNote] = useState<string>();
+export async function getServerSideProps({ params }) {
+  const { id } = params;
 
-  const router = useRouter();
-  const { id } = router.query;
+  const res = await fetch(`https://api.midzdev.com/note/${id}`);
+  const data = await res.text();
 
-  useEffect(() => {
-    if (!router.isReady) return;
+  return { props: { id, data } };
+}
 
-    (async () => {
-      const res = await fetch(`https://api.midzdev.com/note/${id}`);
-      const data = await res.text();
-      setNote(data);
-    })();
-  }, [router.isReady]);
-
+export default function Note({ id, data }) {
   return (
     <>
+      <Head>
+        <meta property="og:site_name" content={`Note ID: ${id}`} />
+        <meta property="og:title" content="Note by MidzDev" />
+        <meta property="og:description" content={data} />
+      </Head>
       <pre className="fixed w-screen h-screen bg-transparent font-['Fira_Code'] p-4 text-white font-semibold text-sm whitespace-pre-wrap break-words">
-        {note}
+        {data}
       </pre>
     </>
   );
