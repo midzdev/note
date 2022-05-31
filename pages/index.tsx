@@ -32,7 +32,7 @@ export default function Index() {
     <textarea
       ref={noteRef}
       placeholder="Ctrl + S to save note."
-      className="fixed w-screen h-screen overflow-x-auto bg-transparent resize-none font-['Fira_Code'] p-4 text-white font-semibold text-sm placeholder:text-neutral-400"
+      className="fixed w-screen h-screen overflow-x-auto bg-transparent resize-none font-['Fira_Code'] p-4 text-white text-sm placeholder:text-neutral-400"
     />
   );
 }
