@@ -58,7 +58,7 @@ export default function Index() {
       </div>
       <textarea
         ref={noteRef}
-        placeholder="Ctrl + S to save note."
+        placeholder="Ctrl + S or double-tap to save note"
         className="fixed w-screen h-screen overflow-x-auto bg-transparent resize-none font-['Fira_Code'] p-4 text-white text-sm placeholder:text-neutral-400"
       />
     </div>
