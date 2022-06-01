@@ -15,6 +15,10 @@ export default function Note({ id, data }) {
       <Head>
         <meta property="og:site_name" content={`Note ID: ${id}`} />
         <meta property="og:description" content={data} />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <pre className="fixed h-screen w-screen whitespace-pre-wrap break-words bg-transparent p-4 font-[Inter] text-sm text-white">
         {data}
