@@ -49,17 +49,17 @@ export default function Index() {
   return (
     <div onClick={handleClick}>
       <div
-        className={`fixed h-screen w-screen flex justify-center items-center bg-neutral-900 z-10 ${
+        className={`fixed z-10 flex h-screen w-screen items-center justify-center bg-neutral-900 ${
           isSaving ? '' : 'hidden'
         }`}>
-        <div className="w-20 h-20 rounded-full bg-transparent border-4 border-indigo-500 animate-ping flex items-center justify-center text-xs text-indigo-400 font-['Fira_Code']">
+        <div className="flex h-20 w-20 animate-ping items-center justify-center rounded-full border-4 border-indigo-500 bg-transparent font-['Fira_Code'] text-xs text-indigo-400">
           Saving
         </div>
       </div>
       <textarea
         ref={noteRef}
         placeholder="Ctrl + S or double-tap to save note"
-        className="fixed w-screen h-screen overflow-x-auto bg-transparent resize-none font-['Fira_Code'] p-4 text-white text-sm placeholder:text-neutral-400"
+        className="fixed h-screen w-screen resize-none overflow-x-auto bg-transparent p-4 font-['Fira_Code'] text-sm text-white placeholder:text-neutral-400"
       />
     </div>
   );

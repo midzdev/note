@@ -16,7 +16,7 @@ export default function Note({ id, data }) {
         <meta property="og:site_name" content={`Note ID: ${id}`} />
         <meta property="og:description" content={data} />
       </Head>
-      <pre className="fixed w-screen h-screen bg-transparent font-['Fira_Code'] p-4 text-white text-sm whitespace-pre-wrap break-words">
+      <pre className="fixed h-screen w-screen whitespace-pre-wrap break-words bg-transparent p-4 font-['Fira_Code'] text-sm text-white">
         {data}
       </pre>
     </>
