@@ -52,14 +52,14 @@ export default function Index() {
         className={`fixed z-10 flex h-screen w-screen items-center justify-center bg-neutral-900 ${
           isSaving ? '' : 'hidden'
         }`}>
-        <div className="flex h-20 w-20 animate-ping items-center justify-center rounded-full border-4 border-indigo-500 bg-transparent font-[Inter] text-xs text-indigo-400">
+        <div className="flex h-20 w-20 animate-ping items-center justify-center rounded-full border-4 border-indigo-500 bg-transparent font-['Fira_Code']  text-xs text-indigo-400">
           Saving
         </div>
       </div>
       <textarea
         ref={noteRef}
         placeholder="Ctrl + S or double-tap to save note"
-        className="fixed h-screen w-screen resize-none overflow-x-auto bg-transparent p-4 font-[Inter] text-sm text-white placeholder:text-neutral-400"
+        className="fixed h-screen w-screen resize-none overflow-x-auto bg-transparent p-4 font-['Fira_Code'] text-sm text-white placeholder:text-neutral-400"
       />
     </div>
   );
